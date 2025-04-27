@@ -64,25 +64,6 @@ function App() {
           </svg>
           Мы в Telegram
         </a>
-        <a 
-          href="https://afl.co.th/football/afl-moscow-8x8/euroleague-%22d%22-3477/teams/fc-sau" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="afl-btn"
-        >
-          <svg viewBox="0 0 100 100" width="18" height="18" style={{marginRight: '6px'}} xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fillRule="evenodd">
-              <path d="M50 5c-8.5 0-16.7.4-24.6 1.2-3.2.3-6.1 2.1-8 4.8C7.7 22.2 2.2 36.2.5 44.2c-1.7 8-1.7 13.6-1.7 13.6 0 4.2 1.7 8.2 4.8 11.1 7.7 7.1 36.2 29.6 44.2 34.2 8 4.6 13.6 4.6 13.6 4.6s5.6 0 13.6-4.6c8-4.6 36.5-27.1 44.2-34.2 3.1-2.9 4.8-6.9 4.8-11.1 0 0 0-5.6-1.7-13.6-1.7-8-7.2-22-16.9-33.2-1.9-2.7-4.8-4.5-8-4.8C66.7 5.4 58.5 5 50 5z" fill="#fff"/>
-              <text x="50" y="40" textAnchor="middle" fontSize="28" fontWeight="bold" fill="#1a237e" fontFamily="Arial, Helvetica, sans-serif">AFL</text>
-              <circle cx="50" cy="70" r="14" fill="#fff" stroke="#1a237e" strokeWidth="3" />
-              <polygon points="50,60 54,68 46,68" fill="#1a237e" />
-              <polygon points="50,80 54,72 46,72" fill="#1a237e" />
-              <polygon points="60,70 52,74 52,66" fill="#1a237e" />
-              <polygon points="40,70 48,74 48,66" fill="#1a237e" />
-            </g>
-          </svg>
-          Мы в AFL
-        </a>
       </div>
       <header className="header">
         <div className="container">
