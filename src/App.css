@@ -1,0 +1,180 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(255, 255, 255);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--spartak-red);
+  padding: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.header h1 {
+  color: var(--spartak-white);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.main {
+  flex: 1;
+  padding: 40px 0;
+  background-color: var(--spartak-gray);
+}
+
+/* Calendar specific styles */
+.calendar-container {
+  background-color: var(--spartak-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.calendar-day:hover {
+  background-color: var(--spartak-red);
+  color: var(--spartak-white);
+}
+
+.calendar-day.today {
+  background-color: var(--spartak-red);
+  color: var(--spartak-white);
+}
+
+.calendar-day.selected {
+  border: 2px solid var(--spartak-red);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .calendar-container {
+    padding: 20px;
+  }
+
+  .calendar-grid {
+    gap: 5px;
+  }
+}
+
+.participation-outer {
+  max-width: 700px;
+  margin: 40px auto 0 auto;
+  background: linear-gradient(180deg, #232323 80%, #2a5d23 100%);
+  border-radius: 32px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  padding: 36px 32px 32px 32px;
+  color: #fff;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.participation-outer .title {
+  color: #fff;
+  text-shadow: 0 2px 8px #222, 0 0 2px #000;
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.oval-btn {
+  border: none;
+  outline: none;
+  background: #333;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 600;
+  border-radius: 32px;
+  padding: 14px 36px;
+  margin: 0 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.oval-btn.selected, .oval-btn:active {
+  background: #e30613;
+  color: #fff;
+  box-shadow: 0 0 0 4px #fff, 0 2px 16px #e30613;
+}
+.oval-btn:hover {
+  background: #b8000a;
+  color: #fff;
+}

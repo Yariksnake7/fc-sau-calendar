@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Алексей Иванов",
+    "matches": 12,
+    "goals": 5,
+    "assists": 3,
+    "foot": "Правая",
+    "height": 180,
+    "weight": 75,
+    "yellowCards": 1,
+    "redCards": 0
+  },
+  {
+    "id": 2,
+    "name": "Дмитрий Петров",
+    "matches": 15,
+    "goals": 2,
+    "assists": 6,
+    "foot": "Левая",
+    "height": 178,
+    "weight": 72,
+    "yellowCards": 2,
+    "redCards": 1
+  },
+  {
+    "id": 3,
+    "name": "Иван Сидоров",
+    "matches": 10,
+    "goals": 0,
+    "assists": 1,
+    "foot": "Правая",
+    "height": 185,
+    "weight": 80,
+    "yellowCards": 0,
+    "redCards": 0
+  }
+] 

@@ -1,0 +1,214 @@
+.pitch-bg {
+  width: 100%;
+  max-width: 420px;
+  margin: 40px auto;
+  background: linear-gradient(180deg, #222 60%, #333 100%);
+  border-radius: 24px;
+  border: 4px solid #e30613;
+  position: relative;
+  min-height: 600px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0 32px 0;
+}
+.pitch-players {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 10px;
+  width: 95%;
+  min-height: 500px;
+}
+.pitch-outer {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formation-select {
+  margin-bottom: 18px;
+  color: #fff;
+  font-size: 1.1em;
+  text-align: left;
+  width: 100%;
+  max-width: 700px;
+}
+.half-pitch-bg {
+  width: 100%;
+  max-width: 700px;
+  min-height: 520px;
+  background: linear-gradient(180deg, #1e3c1b 70%, #2a5d23 100%);
+  border-radius: 0 0 48px 48px;
+  border: 4px solid #e30613;
+  border-top: none;
+  position: relative;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  padding-bottom: 40px;
+  overflow: visible;
+}
+.field-positions {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+.field-pos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 60px;
+  gap: 18px;
+}
+.field-pos-fw { margin-top: 10px; }
+.field-pos-mf { margin-top: 10px; }
+.field-pos-df { margin-top: 10px; }
+.field-pos-gk { margin-bottom: 0; }
+
+/* Разметка поля */
+.half-pitch-bg::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 400px;
+  background: rgba(255,255,255,0.25);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.half-pitch-bg::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 180px;
+  height: 90px;
+  border: 4px solid #fff;
+  border-radius: 0 0 90px 90px;
+  border-top: none;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.subs-label {
+  color: #fff;
+  font-size: 1.1em;
+  margin: 30px 0 8px 0;
+  text-align: left;
+  text-shadow: 0 2px 8px #222, 0 0 2px #000;
+  font-weight: 700;
+}
+.subs-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  min-height: 110px;
+  background: rgba(30,30,30,0.85);
+  border-radius: 16px;
+  padding: 12px 0;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.field-positions-multi {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+.field-line {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 32px;
+  min-height: 70px;
+  width: 100%;
+}
+.field-line-fw { margin-top: 10px; }
+.field-line-mf { margin-top: 10px; }
+.field-line-df { margin-top: 10px; }
+.field-line-gk { margin-bottom: 0; }
+
+.formation-buttons {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 18px;
+  color: #fff;
+  text-shadow: 0 2px 8px #222, 0 0 2px #000;
+  font-size: 1.25em;
+  font-weight: 700;
+}
+.formation-btn {
+  background: #232323;
+  color: #fff;
+  border: 2px solid #e30613;
+  border-radius: 12px;
+  font-size: 1.1em;
+  padding: 8px 28px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.formation-btn.active, .formation-btn:hover {
+  background: #e30613;
+  color: #fff;
+  border: 2px solid #fff;
+}
+.real-pitch-bg {
+  width: 100%;
+  max-width: 700px;
+  height: 500px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #1e3c1b 70%, #2a5d23 100%);
+  border-radius: 0 0 48px 48px;
+  border: 4px solid #e30613;
+  border-top: none;
+  position: relative;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+/* Перспектива и разметка */
+.real-pitch-bg::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 90%;
+  height: 100%;
+  transform: translateX(-50%) perspective(400px) rotateX(12deg);
+  border: 2px solid rgba(255,255,255,0.18);
+  border-top: none;
+  border-radius: 0 0 48px 48px;
+  pointer-events: none;
+}
+.real-pitch-bg::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  width: 38%;
+  height: 18%;
+  border: 3px solid #fff;
+  border-radius: 0 0 90px 90px;
+  border-top: none;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.pitch-outer h2, .pitch-outer .title {
+  color: #fff;
+  text-shadow: 0 2px 8px #222, 0 0 2px #000;
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 18px;
+} 
