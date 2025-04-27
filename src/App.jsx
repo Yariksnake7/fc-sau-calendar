@@ -40,6 +40,8 @@ function App() {
     const saved = localStorage.getItem('currentUser');
     return saved ? JSON.parse(saved) : null;
   });
+  const [carModal, setCarModal] = useState(false);
+  const [carResult, setCarResult] = useState(null);
 
   const handleLogin = (userObj) => {
     setUser(userObj);
@@ -82,10 +84,29 @@ function App() {
                 <button className="btn" onClick={() => setPage('payment')}>Оплата матча</button>
               )}
               <button className="btn" style={{background:'#333', color:'#fff', border:'1px solid #e30613'}} onClick={() => { setUser(null); localStorage.removeItem('currentUser'); }}>Выйти</button>
+              <div className="car-banner" onClick={() => { setCarModal(true); setCarResult(null); }} title="Поехать на матч со Стёпой на машине">
+                <img src="/car.png" alt="car" />
+              </div>
             </nav>
           </div>
         </div>
       </header>
+      {carModal && (
+        <div className="car-modal-backdrop">
+          <div className="car-modal">
+            {!carResult && <>
+              <div style={{marginBottom: 12}}>Вы хотите поехать на матч со Стёпой на машине?</div>
+              <div className="car-modal-btns">
+                <button onClick={() => setCarResult('no')}>Нет</button>
+                <button onClick={() => setCarResult('yes')}>Да</button>
+              </div>
+            </>}
+            {carResult === 'no' && <div style={{marginTop: 8}}>Может в следующий раз!</div>}
+            {carResult === 'yes' && <div style={{marginTop: 8}}>Извините, все места в машине заняты</div>}
+            <button style={{marginTop: 18, background:'#333'}} onClick={() => setCarModal(false)}>Закрыть</button>
+          </div>
+        </div>
+      )}
       <main className="main">
         <div className="container">
           {page === 'players' && <PlayersList />}
