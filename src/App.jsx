@@ -52,33 +52,32 @@ function App() {
 
   return (
     <div className="app">
-      <a 
-        href="https://t.me/saulutshevsex" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="telegram-btn"
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.95 1.24-5.5 3.65-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.29-.49.8-.75 3.12-1.36 5.2-2.26 6.24-2.7 2.98-1.24 3.6-1.46 4.01-1.46.09 0 .29.02.42.12.11.08.14.19.15.27-.01.06.01.24 0 .38z"/>
-        </svg>
-        Мы в Telegram
-      </a>
-      <a 
-        href="https://afl.co.th/football/afl-moscow-8x8/euroleague-%22d%22-3477/teams/fc-sau" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="afl-btn"
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-        </svg>
-        <img 
-          src="https://afl.co.th/assets/images/logo.png" 
-          alt="AFL Logo" 
-          style={{ width: '16px', height: '16px', marginRight: '4px' }}
-        />
-        Мы в AFL
-      </a>
+      <div className="corner-buttons">
+        <a 
+          href="https://t.me/saulutshevsex" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="telegram-btn"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.95 1.24-5.5 3.65-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.29-.49.8-.75 3.12-1.36 5.2-2.26 6.24-2.7 2.98-1.24 3.6-1.46 4.01-1.46.09 0 .29.02.42.12.11.08.14.19.15.27-.01.06.01.24 0 .38z"/>
+          </svg>
+          Мы в Telegram
+        </a>
+        <a 
+          href="https://afl.co.th/football/afl-moscow-8x8/euroleague-%22d%22-3477/teams/fc-sau" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="afl-btn"
+        >
+          <img 
+            src="/afl-logo.png" 
+            alt="AFL Logo" 
+            style={{ width: '18px', height: '18px', marginRight: '6px', background: '#fff', borderRadius: '4px' }}
+          />
+          Мы в AFL
+        </a>
+      </div>
       <header className="header">
         <div className="container">
           <div className="header-content">

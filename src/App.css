@@ -179,68 +179,27 @@
   color: #fff;
 }
 
-.telegram-btn, .afl-btn {
+.corner-buttons {
   position: fixed;
   top: 10px;
   right: 10px;
   z-index: 1000;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: 600;
   display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  text-decoration: none;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.telegram-btn {
-  background: #0088cc;
-  right: 140px;
-}
-
-.afl-btn {
-  background: #1a237e;
-  border: 1px solid #3949ab;
-}
-
-.telegram-btn:hover, .afl-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-.telegram-btn:hover {
-  background: #0077b3;
-}
-
-.afl-btn:hover {
-  background: #283593;
-}
-
-.telegram-btn svg, .afl-btn svg {
-  width: 16px;
-  height: 16px;
+.telegram-btn, .afl-btn {
+  position: static;
+  margin: 0;
+  width: max-content;
 }
 
 @media (max-width: 700px) {
-  .telegram-btn, .afl-btn {
+  .corner-buttons {
     top: 5px;
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .telegram-btn {
-    right: 100px;
-  }
-
-  .telegram-btn svg, .afl-btn svg {
-    width: 14px;
-    height: 14px;
+    right: 5px;
+    gap: 6px;
   }
 }
 
