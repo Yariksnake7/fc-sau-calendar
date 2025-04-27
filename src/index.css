@@ -21,6 +21,7 @@ body, html, .app, .main {
   min-height: 100vh;
   background: linear-gradient(135deg, #181c23 0%, #23272f 100%) !important;
   font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+  cursor: url('/cursor.png') 16 16, auto;
 }
 
 h1, h2, h3, h4, h5, h6, .title {
