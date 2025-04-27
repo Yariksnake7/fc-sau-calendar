@@ -65,7 +65,9 @@ function App() {
               <button className="btn" onClick={() => setPage('players')}>Список игроков</button>
               <button className="btn" onClick={() => setPage('field')}>Футбольное поле</button>
               <button className="btn" onClick={() => setPage('participation')}>Участие в игре</button>
-              <button className="btn" onClick={() => setPage('payment')}>Оплата матча</button>
+              {user.role !== 'fan' && (
+                <button className="btn" onClick={() => setPage('payment')}>Оплата матча</button>
+              )}
               <button className="btn" style={{background:'#333', color:'#fff', border:'1px solid #e30613'}} onClick={() => { setUser(null); localStorage.removeItem('currentUser'); }}>Выйти</button>
             </nav>
           </div>
@@ -86,7 +88,7 @@ function App() {
               <PlayerAttendance user={user} />
             </div>
           )}
-          {page === 'payment' && (
+          {page === 'payment' && user.role !== 'fan' && (
             <div className="payment-outer">
               <PaymentPage user={user} />
             </div>

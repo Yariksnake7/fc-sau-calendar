@@ -5,7 +5,7 @@ import './Login.css';
 const roles = [
   { key: 'player', label: 'Я игрок' },
   { key: 'fan', label: 'Я болельщик' },
-  { key: 'coach', label: 'Я тренер' },
+  // { key: 'coach', label: 'Я тренер' }, // Удаляем тренера
 ];
 
 const coachPlayersIds = [12, 19, 5, 6]; // Афонин Клим, Меркулов Дмитрий, Малахов Ярослав, Семибратов Пётр
@@ -17,7 +17,7 @@ export default function Login({ onLogin }) {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    if (role === 'player' || role === 'coach') {
+    if (role === 'player') {
       if (!selectedPlayer) return;
       const player = players.find(p => p.id === selectedPlayer);
       if (!player || player.pin !== pin) {
@@ -31,9 +31,9 @@ export default function Login({ onLogin }) {
   };
 
   let filteredPlayers = players;
-  if (role === 'coach') {
-    filteredPlayers = players.filter(p => coachPlayersIds.includes(p.id));
-  }
+  // if (role === 'coach') {
+  //   filteredPlayers = players.filter(p => coachPlayersIds.includes(p.id));
+  // }
 
   return (
     <div className="login-container">
@@ -49,7 +49,7 @@ export default function Login({ onLogin }) {
           </button>
         ))}
       </div>
-      {(role === 'player' || role === 'coach') && (
+      {(role === 'player') && (
         <div className="player-select">
           <h3>Выберите себя из списка</h3>
           <div className="players-list login-list">
@@ -83,7 +83,7 @@ export default function Login({ onLogin }) {
         </div>
       )}
       {error && <div style={{ color: 'red', margin: '12px 0' }}>{error}</div>}
-      <button className="btn login-btn" onClick={handleLogin} disabled={role === null || ((role === 'player' || role === 'coach') && (!selectedPlayer || pin.length !== 4))}>
+      <button className="btn login-btn" onClick={handleLogin} disabled={role === null || ((role === 'player') && (!selectedPlayer || pin.length !== 4))}>
         Войти
       </button>
     </div>
