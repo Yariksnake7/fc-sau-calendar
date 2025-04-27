@@ -57,42 +57,19 @@ export default function Pitch({ squad, setSquad }) {
 
   return (
     <div className="pitch-outer">
+      <div className="pitch-title">Футбольное поле</div>
       <div className="pitch-container">
+        <div className="formation-buttons">
+          <button
+            className={`formation-btn${formation === '4-2-1' ? ' selected' : ''}`}
+            onClick={() => setFormation('4-2-1')}
+          >4-2-1</button>
+          <button
+            className={`formation-btn${formation === '3-3-1' ? ' selected' : ''}`}
+            onClick={() => setFormation('3-3-1')}
+          >3-3-1</button>
+        </div>
         <div className="pitch">
-          {/* Кнопки выбора схемы */}
-          <div style={{ display: 'flex', gap: 16, marginBottom: 32 }}>
-            <button
-              style={{
-                padding: '12px 32px',
-                borderRadius: 32,
-                fontWeight: 700,
-                fontSize: 20,
-                background: formation === '4-2-1' ? 'linear-gradient(90deg, #e30613 0%, #ff5f6d 100%)' : '#23272f',
-                color: formation === '4-2-1' ? '#fff' : '#eee',
-                border: '2px solid #fff3',
-                boxShadow: formation === '4-2-1' ? '0 0 16px #e30613aa' : 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-              onClick={() => setFormation('4-2-1')}
-            >4-2-1</button>
-            <button
-              style={{
-                padding: '12px 32px',
-                borderRadius: 32,
-                fontWeight: 700,
-                fontSize: 20,
-                background: formation === '3-3-1' ? 'linear-gradient(90deg, #e30613 0%, #ff5f6d 100%)' : '#23272f',
-                color: formation === '3-3-1' ? '#fff' : '#eee',
-                border: '2px solid #fff3',
-                boxShadow: formation === '3-3-1' ? '0 0 16px #e30613aa' : 'none',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-              onClick={() => setFormation('3-3-1')}
-            >3-3-1</button>
-          </div>
-          {/* Футбольное поле */}
           <div
             style={{
               position: 'relative',
@@ -106,6 +83,8 @@ export default function Pitch({ squad, setSquad }) {
               boxShadow: '0 24px 64px 0 #000a, 0 2px 32px 0 #22c55e55',
               marginBottom: 32,
               overflow: 'hidden',
+              marginLeft: 'auto',
+              marginRight: 'auto',
             }}
           >
             {/* Центральная линия (горизонтальная) */}
@@ -144,19 +123,18 @@ export default function Pitch({ squad, setSquad }) {
               );
             })}
           </div>
-          {/* Запасные игроки */}
-          <div style={{ marginTop: 32, marginBottom: 8, fontSize: 20, fontWeight: 700, color: '#fff', textShadow: '0 2px 8px #222, 0 0 2px #000', textTransform: 'uppercase', letterSpacing: 2 }}>Запасные</div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16, background: 'rgba(0,0,0,0.7)', borderRadius: 16, padding: 16, width: '100%', maxWidth: 900, boxShadow: '0 2px 16px #0008' }}>
-            {subs.map(player => (
-              <div
-                key={player.id}
-                style={{ position: 'static', cursor: 'pointer' }}
-                onClick={() => handlePlayerClick(player.id)}
-              >
-                <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
-              </div>
-            ))}
-          </div>
+        </div>
+        <div className="subs-title">Запасные</div>
+        <div className="subs-row">
+          {subs.map(player => (
+            <div
+              key={player.id}
+              style={{ position: 'static', cursor: 'pointer' }}
+              onClick={() => handlePlayerClick(player.id)}
+            >
+              <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
+            </div>
+          ))}
         </div>
       </div>
     </div>
