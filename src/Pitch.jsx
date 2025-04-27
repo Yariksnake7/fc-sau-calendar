@@ -56,104 +56,108 @@ export default function Pitch({ squad, setSquad }) {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', minHeight: '80vh', padding: '32px 0', background: 'linear-gradient(180deg, #181c23 0%, #23272f 100%)' }}>
-      {/* Кнопки выбора схемы */}
-      <div style={{ display: 'flex', gap: 16, marginBottom: 32 }}>
-        <button
-          style={{
-            padding: '12px 32px',
-            borderRadius: 32,
-            fontWeight: 700,
-            fontSize: 20,
-            background: formation === '4-2-1' ? 'linear-gradient(90deg, #e30613 0%, #ff5f6d 100%)' : '#23272f',
-            color: formation === '4-2-1' ? '#fff' : '#eee',
-            border: '2px solid #fff3',
-            boxShadow: formation === '4-2-1' ? '0 0 16px #e30613aa' : 'none',
-            cursor: 'pointer',
-            transition: 'all 0.2s',
-          }}
-          onClick={() => setFormation('4-2-1')}
-        >4-2-1</button>
-        <button
-          style={{
-            padding: '12px 32px',
-            borderRadius: 32,
-            fontWeight: 700,
-            fontSize: 20,
-            background: formation === '3-3-1' ? 'linear-gradient(90deg, #e30613 0%, #ff5f6d 100%)' : '#23272f',
-            color: formation === '3-3-1' ? '#fff' : '#eee',
-            border: '2px solid #fff3',
-            boxShadow: formation === '3-3-1' ? '0 0 16px #e30613aa' : 'none',
-            cursor: 'pointer',
-            transition: 'all 0.2s',
-          }}
-          onClick={() => setFormation('3-3-1')}
-        >3-3-1</button>
-      </div>
-      {/* Футбольное поле */}
-      <div
-        style={{
-          position: 'relative',
-          width: 420,
-          height: 660,
-          maxWidth: '95vw',
-          maxHeight: '70vw',
-          background: 'linear-gradient(180deg, #22c55e 0%, #15803d 100%)',
-          borderRadius: 32,
-          border: '6px solid #fff',
-          boxShadow: '0 24px 64px 0 #000a, 0 2px 32px 0 #22c55e55',
-          marginBottom: 32,
-          overflow: 'hidden',
-        }}
-      >
-        {/* Центральная линия (горизонтальная) */}
-        <div style={{ position: 'absolute', top: '50%', left: 0, width: '100%', height: 3, background: '#fff', opacity: 0.9, transform: 'translateY(-50%)' }} />
-        {/* Центральный круг */}
-        <div style={{ position: 'absolute', left: '50%', top: '50%', width: 120, height: 120, border: '2px solid #fff', borderRadius: '50%', transform: 'translate(-50%, -50%)' }} />
-        {/* Центр поля */}
-        <div style={{ position: 'absolute', left: '50%', top: '50%', width: 16, height: 16, background: '#fff', borderRadius: '50%', transform: 'translate(-50%, -50%)' }} />
-        {/* Верхняя штрафная */}
-        <div style={{ position: 'absolute', left: '50%', top: 0, width: 260, height: 70, border: '2px solid #fff', borderTop: 'none', borderRadius: '0 0 32px 32px', transform: 'translateX(-50%)' }} />
-        {/* Нижняя штрафная */}
-        <div style={{ position: 'absolute', left: '50%', bottom: 0, width: 260, height: 70, border: '2px solid #fff', borderBottom: 'none', borderRadius: '32px 32px 0 0', transform: 'translateX(-50%)' }} />
-        {/* Вратарские */}
-        <div style={{ position: 'absolute', left: '50%', top: 0, width: 120, height: 32, border: '2px solid #fff', borderTop: 'none', borderRadius: '0 0 16px 16px', transform: 'translateX(-50%)' }} />
-        <div style={{ position: 'absolute', left: '50%', bottom: 0, width: 120, height: 32, border: '2px solid #fff', borderBottom: 'none', borderRadius: '16px 16px 0 0', transform: 'translateX(-50%)' }} />
-        {/* Игроки на поле */}
-        {positions.map((pos, idx) => {
-          const player = fieldPlayers[idx];
-          if (!player) return null;
-          return (
-            <div
-              key={player.id}
+    <div className="pitch-outer">
+      <div className="pitch-container">
+        <div className="pitch">
+          {/* Кнопки выбора схемы */}
+          <div style={{ display: 'flex', gap: 16, marginBottom: 32 }}>
+            <button
               style={{
-                position: 'absolute',
-                left: `${pos.x}%`,
-                top: `${pos.y}%`,
-                transform: 'translate(-50%, -50%)',
+                padding: '12px 32px',
+                borderRadius: 32,
+                fontWeight: 700,
+                fontSize: 20,
+                background: formation === '4-2-1' ? 'linear-gradient(90deg, #e30613 0%, #ff5f6d 100%)' : '#23272f',
+                color: formation === '4-2-1' ? '#fff' : '#eee',
+                border: '2px solid #fff3',
+                boxShadow: formation === '4-2-1' ? '0 0 16px #e30613aa' : 'none',
                 cursor: 'pointer',
-                zIndex: 2,
-                textAlign: 'center',
+                transition: 'all 0.2s',
               }}
-              onClick={() => handlePlayerClick(player.id)}
-            >
-              <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
-            </div>
-          );
-        })}
-      </div>
-      {/* Запасные игроки */}
-      <div style={{ marginTop: 32, marginBottom: 8, fontSize: 20, fontWeight: 700, color: '#fff', textShadow: '0 2px 8px #222, 0 0 2px #000', textTransform: 'uppercase', letterSpacing: 2 }}>Запасные</div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16, background: 'rgba(0,0,0,0.7)', borderRadius: 16, padding: 16, width: '100%', maxWidth: 900, boxShadow: '0 2px 16px #0008' }}>
-        {subs.map(player => (
-          <div
-            key={player.id}
-            style={{ position: 'static', cursor: 'pointer' }}
-            onClick={() => handlePlayerClick(player.id)}
-          >
-            <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
+              onClick={() => setFormation('4-2-1')}
+            >4-2-1</button>
+            <button
+              style={{
+                padding: '12px 32px',
+                borderRadius: 32,
+                fontWeight: 700,
+                fontSize: 20,
+                background: formation === '3-3-1' ? 'linear-gradient(90deg, #e30613 0%, #ff5f6d 100%)' : '#23272f',
+                color: formation === '3-3-1' ? '#fff' : '#eee',
+                border: '2px solid #fff3',
+                boxShadow: formation === '3-3-1' ? '0 0 16px #e30613aa' : 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+              }}
+              onClick={() => setFormation('3-3-1')}
+            >3-3-1</button>
           </div>
-        ))}
+          {/* Футбольное поле */}
+          <div
+            style={{
+              position: 'relative',
+              width: 420,
+              height: 660,
+              maxWidth: '95vw',
+              maxHeight: '70vw',
+              background: 'linear-gradient(180deg, #22c55e 0%, #15803d 100%)',
+              borderRadius: 32,
+              border: '6px solid #fff',
+              boxShadow: '0 24px 64px 0 #000a, 0 2px 32px 0 #22c55e55',
+              marginBottom: 32,
+              overflow: 'hidden',
+            }}
+          >
+            {/* Центральная линия (горизонтальная) */}
+            <div style={{ position: 'absolute', top: '50%', left: 0, width: '100%', height: 3, background: '#fff', opacity: 0.9, transform: 'translateY(-50%)' }} />
+            {/* Центральный круг */}
+            <div style={{ position: 'absolute', left: '50%', top: '50%', width: 120, height: 120, border: '2px solid #fff', borderRadius: '50%', transform: 'translate(-50%, -50%)' }} />
+            {/* Центр поля */}
+            <div style={{ position: 'absolute', left: '50%', top: '50%', width: 16, height: 16, background: '#fff', borderRadius: '50%', transform: 'translate(-50%, -50%)' }} />
+            {/* Верхняя штрафная */}
+            <div style={{ position: 'absolute', left: '50%', top: 0, width: 260, height: 70, border: '2px solid #fff', borderTop: 'none', borderRadius: '0 0 32px 32px', transform: 'translateX(-50%)' }} />
+            {/* Нижняя штрафная */}
+            <div style={{ position: 'absolute', left: '50%', bottom: 0, width: 260, height: 70, border: '2px solid #fff', borderBottom: 'none', borderRadius: '32px 32px 0 0', transform: 'translateX(-50%)' }} />
+            {/* Вратарские */}
+            <div style={{ position: 'absolute', left: '50%', top: 0, width: 120, height: 32, border: '2px solid #fff', borderTop: 'none', borderRadius: '0 0 16px 16px', transform: 'translateX(-50%)' }} />
+            <div style={{ position: 'absolute', left: '50%', bottom: 0, width: 120, height: 32, border: '2px solid #fff', borderBottom: 'none', borderRadius: '16px 16px 0 0', transform: 'translateX(-50%)' }} />
+            {/* Игроки на поле */}
+            {positions.map((pos, idx) => {
+              const player = fieldPlayers[idx];
+              if (!player) return null;
+              return (
+                <div
+                  key={player.id}
+                  style={{
+                    position: 'absolute',
+                    left: `${pos.x}%`,
+                    top: `${pos.y}%`,
+                    transform: 'translate(-50%, -50%)',
+                    cursor: 'pointer',
+                    zIndex: 2,
+                    textAlign: 'center',
+                  }}
+                  onClick={() => handlePlayerClick(player.id)}
+                >
+                  <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
+                </div>
+              );
+            })}
+          </div>
+          {/* Запасные игроки */}
+          <div style={{ marginTop: 32, marginBottom: 8, fontSize: 20, fontWeight: 700, color: '#fff', textShadow: '0 2px 8px #222, 0 0 2px #000', textTransform: 'uppercase', letterSpacing: 2 }}>Запасные</div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16, background: 'rgba(0,0,0,0.7)', borderRadius: 16, padding: 16, width: '100%', maxWidth: 900, boxShadow: '0 2px 16px #0008' }}>
+            {subs.map(player => (
+              <div
+                key={player.id}
+                style={{ position: 'static', cursor: 'pointer' }}
+                onClick={() => handlePlayerClick(player.id)}
+              >
+                <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -314,3 +314,54 @@
     padding: 0 16px;
   }
 }
+
+.pitch-outer {
+  background: linear-gradient(180deg, #181c23 80%, #23272f 100%);
+  border-radius: 32px;
+  box-shadow: 0 4px 32px #000a;
+  padding: 32px 0;
+  margin-bottom: 32px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pitch-container {
+  min-width: 800px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .pitch-outer {
+    padding: 16px 0;
+    margin: 0 -16px;
+    border-radius: 0;
+  }
+
+  .pitch-container {
+    min-width: 600px;
+    padding: 0 16px;
+  }
+
+  .player-spot {
+    transform: scale(0.8);
+  }
+
+  .player-spot.selected {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .pitch-container {
+    min-width: 400px;
+  }
+
+  .player-spot {
+    transform: scale(0.7);
+  }
+
+  .player-spot.selected {
+    transform: scale(0.8);
+  }
+}
