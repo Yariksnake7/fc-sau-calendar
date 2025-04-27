@@ -63,4 +63,38 @@
   100% {
     box-shadow: 0 0 0 10px #fff, 0 0 40px 16px #fff;
   }
+}
+
+@media (max-width: 600px) {
+  .player-card {
+    min-width: 100px;
+    max-width: 140px;
+    min-height: 120px;
+    margin: 8px auto;
+    padding: 8px 0;
+  }
+  .player-photo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 6px;
+  }
+  .player-name {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 400px) {
+  .player-card {
+    min-width: 90px;
+    max-width: 110px;
+    min-height: 100px;
+    padding: 4px 0;
+  }
+  .player-photo {
+    width: 60px;
+    height: 60px;
+  }
+  .player-name {
+    font-size: 0.95em;
+  }
 } 
