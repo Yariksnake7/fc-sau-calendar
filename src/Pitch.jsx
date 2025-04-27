@@ -137,7 +137,7 @@ export default function Pitch({ squad, setSquad }) {
               }}
               onClick={() => handlePlayerClick(player.id)}
             >
-              <PlayerCard player={player} showOnlyLastName />
+              <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
             </div>
           );
         })}
@@ -151,7 +151,7 @@ export default function Pitch({ squad, setSquad }) {
             style={{ position: 'static', cursor: 'pointer' }}
             onClick={() => handlePlayerClick(player.id)}
           >
-            <PlayerCard player={player} showOnlyLastName />
+            <PlayerCard player={player} showOnlyLastName selected={selectedId === player.id} />
           </div>
         ))}
       </div>

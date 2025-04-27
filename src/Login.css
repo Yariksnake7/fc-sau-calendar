@@ -51,7 +51,9 @@
 }
 .login-card.selected, .login-card:hover {
   border: 2px solid #e30613;
-  box-shadow: 0 0 12px #e30613aa;
+  box-shadow: 0 0 16px 4px #e30613cc, 0 0 12px #e30613aa;
+  background: rgba(227,6,19,0.08);
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
 }
 
 .login-btn {

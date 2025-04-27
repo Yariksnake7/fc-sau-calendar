@@ -49,6 +49,12 @@
   animation: player-glow 1.2s infinite alternate;
   transition: box-shadow 0.2s;
 }
+.player-card.selected {
+  border: 2px solid #e30613 !important;
+  box-shadow: 0 0 16px 4px #e30613cc, 0 0 12px #e30613aa !important;
+  background: rgba(227,6,19,0.08) !important;
+  transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+}
 
 @keyframes player-glow {
   0% {
