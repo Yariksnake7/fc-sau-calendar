@@ -7,10 +7,10 @@ const FORMATIONS = {
     { name: 'FW', x: 50, y: 15 },
     { name: 'MF', x: 30, y: 35 },
     { name: 'MF', x: 70, y: 35 },
-    { name: 'DF', x: 15, y: 60 },
+    { name: 'DF', x: 15, y: 48 },
     { name: 'DF', x: 35, y: 60 },
     { name: 'DF', x: 65, y: 60 },
-    { name: 'DF', x: 85, y: 60 },
+    { name: 'DF', x: 85, y: 48 },
     { name: 'GK', x: 50, y: 90 },
   ],
   '3-3-1': [
