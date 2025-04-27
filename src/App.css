@@ -205,7 +205,8 @@
 }
 
 .afl-btn {
-  background: #e30613;
+  background: #1a237e;
+  border: 1px solid #3949ab;
 }
 
 .telegram-btn:hover, .afl-btn:hover {
@@ -218,7 +219,7 @@
 }
 
 .afl-btn:hover {
-  background: #b8000a;
+  background: #283593;
 }
 
 .telegram-btn svg, .afl-btn svg {
