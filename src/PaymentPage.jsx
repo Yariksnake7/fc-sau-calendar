@@ -35,9 +35,6 @@ const PaymentPage = ({ user }) => {
     <div className="payment-container">
       <div className="payment-card">
         <div className="bank-info">
-          <div className="bank-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Sberbank_Logo_2020.svg" alt="Сбербанк" />
-          </div>
           <div className="bank-details">
             <div className="bank-label">Сбербанк</div>
             <div className="bank-phone">8 916 723 62 41</div>
